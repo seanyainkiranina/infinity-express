@@ -1,5 +1,5 @@
 <?php
 
     $config=array('host'=>'localhost',
-    'user'=>'root','password'=>'chicago','database'=>'zips');
+    'user'=>'root','password'=>'password','database'=>'zips');
 
