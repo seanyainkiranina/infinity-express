@@ -16,9 +16,8 @@ protected function __construct($templates,$cache){
 
 protected static function render_page($page){
 
-		global $env;
 
-	return function() use ($page,$env){ 
+	return function() use ($page){ 
 
 		global $env;
 		$config=$env['config'];
