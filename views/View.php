@@ -1,6 +1,6 @@
 <?php
 
-   class View extends twig_connector_view {
+   class View extends connector_view {
 
 	public function __construct($templates,$cache){
 

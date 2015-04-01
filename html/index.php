@@ -3,7 +3,7 @@
   require_once 'autoloader.php';
   require_once '../bootstrap/slimstart.php';
 
-
+	slim_manager::init();
 /*
 *
 * Create closures connectors to data layer

@@ -1,43 +1,48 @@
 <?php
 
-
-   $app = new \Slim\Slim(array('debug'=>true));
-
-   $env = $app->environment();
-
-   $env['config'] = $config;
-   
-   $env['result'] = null;
+global $env;
 
 
-  class slim_manager{
+class slim_manager{
+
+public	static $app =null;
+
+public static	function init(){
+
+		global $env;
+
+		global $config;
+
+   		self::$app = new \Slim\Slim(array('debug'=>true));
+   		$env = self::$app->environment();
+   		$env['config'] = $config;
+   		$env['result'] = null;
 
 
- static function execute(){
-	global $app;
+	}
 
-	$app->run();
+
+public static function execute(){
+
+	self::$app->run();
 
 }
 
+public  static function response($request,$connector,$template){
 
-  static function response($request,$connector,$template){
 
-	global $app;
-	global $env;
+		$renderer =function() use ($template){
 
-		$renderer=function($var=null,$var2=null,$var3=null) use ($env,$template){
-        	 		echo	$template();
 
-			 };
+				echo $template();	
 
-   		$app->get($request,
+			};
+
+
+   		self::$app->get($request,
          		$connector, 
 			$renderer
 			);
 
 }
-
 }
-
-

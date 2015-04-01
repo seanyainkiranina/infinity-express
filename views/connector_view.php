@@ -1,7 +1,7 @@
 <?php
-abstract class twig_connector_view{
+class connector_view{
 
-  protected var $twig;
+public $twig;
 
 protected function __construct($templates,$cache){
 
@@ -16,20 +16,26 @@ protected function __construct($templates,$cache){
 
 protected static function render_page($page){
 
+		global $env;
 
-	return function($data) use ($page){ 
+	return function() use ($page,$env){ 
 
 		global $env;
 		$config=$env['config'];
 
-		$viewClass = new get_called_class(
-			$config['filtersystem'],
+		$masterClass=get_called_class();
+
+
+		$viewClass = new $masterClass(
+			$config['filesystem'],
 			$config['cache']
 
 		);
 
-		return $this->$twig->render($page,
-		array('data'=>$data));
+
+		return $viewClass->twig->render($page,
+		array('data'=>$env['result']));
+
 
 
 	};
@@ -37,10 +43,12 @@ protected static function render_page($page){
 }
 protected static function render_json(){
 
-		return function($data){
+		return function(){
+		global $env;
 
-		json_encode($data);
 
+
+		return json_encode($env['result']);
 		};
 
 }
