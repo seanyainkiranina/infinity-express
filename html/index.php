@@ -24,7 +24,7 @@
 
 	slim_manager::response("/zip/:zip", 
 			$connectors["get"],
-			$views["index2.html");
+			$views["index2.html"]);
 
 	slim_manager::response("/zips/:zip", 
 			$connectors["get"],
