@@ -9,12 +9,6 @@
    
    $env['result'] = null;
 
-  Twig_Autoloader::register();
-
-   $twigloader = new Twig_Loader_Filesystem('/var/www/html/templates/');
-
-   $env['twig'] = new Twig_Environment($twigloader, array(
-	'cache' =>  '/var/www/html/cache',));
 
   class slim_manager{
 
@@ -33,7 +27,7 @@
 	global $env;
 
 		$renderer=function($var=null,$var2=null,$var3=null) use ($env,$template){
-        	 		echo	$template($env['result']);
+        	 		echo	$template();
 
 			 };
 

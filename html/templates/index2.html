@@ -1,0 +1,53 @@
+<html>
+
+<head>
+</head>
+<body>
+<h1>test 2</h1>
+ 
+{{ "now"|date(timezone="America/Chicago") }}
+<table>
+<thead>
+<tr>
+<th>
+Zip
+</th>
+<th>
+State
+</th>
+<th>
+City
+</th>
+<th>
+Lat
+</th>
+<th>
+Lon
+</th>
+</thead>
+<tbody>
+{% for i in data %}
+<tr>
+<td>
+{{ i.zip }}
+</td>
+<td>
+{{ i.state }}
+</td>
+<td>
+{{ i.city }}
+</td>
+<td>
+{{ i.lat }}
+</td>
+<td>
+{{ i.lng }}
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+</body>
+
+</html>

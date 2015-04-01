@@ -4,30 +4,34 @@
   require_once '../bootstrap/slimstart.php';
 
 
-
+/*
+*
+* Create closures connectors to data layer
+*/
 	$connectors=Model::get_middleware(
 			"get",
 			"get_by_state",
    			"get_by_city"
 	);
 
-	function render_home_page(){
-		global $env;
-	 	 return $env['twig']->render('index.html',
-		$env['result']);
-
-	}
+	$views=View::get_page_renders(
+			"index2.html",
+			"index.html"
+	);
+	$data_views=View::get_data_renders(
+			"json"
+	);
 
 	slim_manager::response("/zip/:zip", 
 			$connectors["get"],
-			"render_home_page");
+			$views["index2.html");
 
 	slim_manager::response("/zips/:zip", 
 			$connectors["get"],
-			"json_encode");
+			$data_views["json"]);
 
 	slim_manager::response("/city/:city", 
 			$connectors["get_by_city"],
-			"json_encode");
+			$data_views["json"]);
 
 	slim_manager::execute();

@@ -3,13 +3,12 @@
 <head>
 </head>
 <body>
-<h1>test</h1>
+<h1>test 2</h1>
  
-{{ "now"|date(timezone="Europe/Paris") }}
-{{ zip }}
+{{ "now"|date(timezone="America/Chicago") }}
 
-{% for i in range(0,3) %}
-{{ i }}
+{% for i in data %}
+{{ i.zip }}
 {% endfor %}
 
 </body>

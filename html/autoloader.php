@@ -1,6 +1,6 @@
 <?php
 
-$dirs=array("../lib/","../config/","../models/");
+$dirs=array("../lib/","../config/","../models/","../views/");
 
 foreach($dirs as $dir){
 
