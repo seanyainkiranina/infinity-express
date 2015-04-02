@@ -7,6 +7,11 @@
 		parent::__construct($templates,$cache);
 
 	}
+	static function get_page_render($page){
+
+
+		return self::render_page($page);
+	}
 
 	static function get_page_renders(){
 

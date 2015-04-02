@@ -51,12 +51,25 @@ static public  function get_middleware(){
 
 	$connectors=func_get_args();
 
+	$loopcount=0;
+
+	$last_connector_key="";
+
 
 	foreach ($connectors as $connector_key){
 
 
 		$middleware_array[$connector_key]=
 		$database_Model::return_database_closure($connector_key);
+		$loopcount++;
+		$last_connector_key=$connector_key;
+
+	}
+
+	if ($loopcount==1){
+		 	return 
+			$database_Model::return_database_closure($last_connector_key);
+
 
 	}
 

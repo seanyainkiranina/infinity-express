@@ -13,17 +13,26 @@
 			"get_by_state",
    			"get_by_city"
 	);
+	$connectors['static']=function($parameters){
+
+
+	};
+
 
 	$views=View::get_page_renders(
+			"index3.html",
 			"index2.html",
 			"index.html"
 	);
 	$data_views=View::get_data_renders(
 			"json"
 	);
+	slim_manager::response("/", 
+			$connectors['static'],
+			View::get_page_render("index3.html"));
 
 	slim_manager::response("/zip/:zip", 
-			$connectors["get"],
+			Model::get_middleware("get"),
 			$views["index2.html"]);
 
 	slim_manager::response("/zips/:zip", 

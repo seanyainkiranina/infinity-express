@@ -3,6 +3,7 @@
 
    class Model extends db_connector_model {
 
+
 	function get($parameters){
 
 		$zip_passed=$parameters['zip'];
