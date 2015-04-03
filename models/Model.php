@@ -24,7 +24,7 @@ class Model extends dbConnectorModel
 
         $zip_passed=$parameters['zip'];
 
-        return R::getAll(
+        return \R::getAll(
             'SELECT * from zips where zip=:zip LIMIT 10',
             [':zip'=>$zip_passed]
         );
@@ -34,7 +34,7 @@ class Model extends dbConnectorModel
     public function getByState($parameters)
     {
         $state=$parameters['state'];
-        return R::getAll(
+        return \R::getAll(
             'SELECT * from zips where state=:state LIMIT 10',
             [':state'=>$state]
         );
@@ -45,7 +45,7 @@ class Model extends dbConnectorModel
     {
         $city=$parameters['city'];
 
-        return R::getAll(
+        return \R::getAll(
             'SELECT * from zips where city=:city LIMIT 10',
             [':city'=>$city]
         );

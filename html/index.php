@@ -1,11 +1,10 @@
 <?php
-  use infinityExpress;
 
+  require_once '../bootstrap/slimManager.php';
   require_once '../config/configuration.php';
   require_once 'autoloader.php';
-  require_once '../bootstrap/slimstart.php';
 
-    slimManager::init();
+  infinityExpress\slimManager::init($config);
 /*
  *
  * Create closures and have slim connect them to the route
@@ -13,7 +12,7 @@
  * loop to store routes middle ware connectors and twig template names
  * 
  */
-    $connectors=Model::getMiddleware(
+    $connectors=infinityExpress\Model::getMiddleware(
         "get",
         "get_by_state",
         "get_by_city"
@@ -24,42 +23,47 @@
     };
 
 
-    $views=View::getPageRenders(
+    $views=infinityExpress\View::getPageRenders(
         "index3.html",
         "index2.html",
         "error.html",
-        "index.html"
-    );
-    $views["json"]=View::getDataRenders(
-        "json"
-    );
-    slimManager::response(
-        "/error",
-        $connectors['static'],
-        View::getPageRenders("error.html")
-    );
-    slimManager::response(
-        "/",
-        $connectors['static'],
-        View::getPageRenders("index3.html")
+        "gray.html"
     );
 
-    slimManager::response(
+
+    $views["json"]=infinityExpress\View::getDataRenders(
+        "json"
+    );
+
+
+  infinityExpress\slimManager::response(
+        "/error",
+        $connectors['static'],
+        infinityExpress\View::getPageRenders("error.html")
+    );
+
+  infinityExpress\slimManager::response(
+        "/",
+        $connectors['static'],
+        infinityExpress\View::getPageRenders("gray.html")
+    );
+
+  infinityExpress\slimManager::response(
         "/zip/:zip",
-        Model::getMiddleware("get"),
+        infinityExpress\Model::getMiddleware("get"),
         $views["index2.html"]
     );
 
-    slimManager::response(
+  infinityExpress\slimManager::response(
         "/zips/:zip",
         $connectors["get"],
         $views["json"]
     );
 
-    slimManager::response(
+  infinityExpress\slimManager::response(
         "/city/:city",
         $connectors["get_by_city"],
         $views["json"]
     );
 
-    slimManager::execute();
+  infinityExpress\slimManager::execute();

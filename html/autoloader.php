@@ -21,6 +21,15 @@ foreach ($dirs as $dir) {
 if (!function_exists('classAutoLoader')) {
     function classAutoLoader($class)
     {
+	$classes=explode("\\",$class);
+
+	$class=$classes[0];
+
+	if (isset($classes[1])){
+		$class=$classes[1];
+
+	}
+
 
         $dirs=array("../views/",
             "../models/");
@@ -28,11 +37,13 @@ if (!function_exists('classAutoLoader')) {
         foreach ($dirs as $dir) {
             if (is_dir($dir)) {
                 if (is_file($dir.$class.".php")) {
+
                     require_once($dir.$class.".php");
 
                 }
             }
         }
+
 
     }
 }

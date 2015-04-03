@@ -18,14 +18,19 @@ class connectorView
 
     public $twig;
 
-    protected function __construct($templates, $cache)
+    protected function __construct()
     {
+	$templates=$GLOBALS['config']['filesystem'];
+	$cache=$GLOBALS['config']['cache'];
 
-        Twig_Autoloader::register();
+	
 
-        $twigloader = new Twig_Loader_Filesystem($templates);
 
-        $this->twig = new Twig_Environment($twigloader, array(
+        \Twig_Autoloader::register();
+
+        $twigloader = new \Twig_Loader_Filesystem($templates);
+
+        $this->twig = new \Twig_Environment($twigloader, array(
         'cache' =>$cache,));
 
     }
@@ -36,8 +41,7 @@ class connectorView
 
         return function () use ($page) {
 
-            global $env;
-            $config=$env['config'];
+	   $config=$GLOBALS['env']['config'];
 
             $masterClass=get_called_class();
 
@@ -51,7 +55,7 @@ class connectorView
 
             return $viewClass->twig->render(
                 $page,
-                array('data'=>$env['result'])
+                array('data'=>$GLOBALS['env']['result'])
             );
 
 
@@ -63,11 +67,11 @@ class connectorView
     {
 
         return function () {
-            global $env;
 
 
 
-            return json_encode($env['result']);
+            return json_encode($GLOBALS['env']['result']);
+
         };
 
     }

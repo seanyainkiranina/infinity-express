@@ -19,10 +19,10 @@ class View extends connectorView
     *  Constructor 
     *  @param Twig template directory Twig cache
     */
-    public function __construct($templates, $cache)
+    public function __construct()
     {
 
-        parent::__construct($templates, $cache);
+        parent::__construct();
 
     }
    /* getPageRender 
@@ -30,14 +30,15 @@ class View extends connectorView
     * @param List of Twig template files
     * @return Hash array of closure Twig methods
     */
-    public static function getPageRender()
+    public static function getPageRenders()
     {
-	if (count(func_get_args())==1){
-            return self::renderPage($argv[0]);
+	$arg=func_get_args();
+	if (count($arg)==1){
+            return self::renderPage($arg[0]);
 	}
         $returnArray=array();
 
-        foreach (func_get_args() as $page) {
+        foreach ($arg as $page) {
             $returnArray[$page]
             =self::renderPage($page);
 
@@ -50,12 +51,13 @@ class View extends connectorView
     // This is just a snub 
     public static function getDataRenders()
     {
-	if (count(func_get_args())==1){
+	$arg=func_get_args();
+	if (count($arg)==1){
             return self::renderJson(); 
 	}
 
         $returnArray=array();
-        foreach (func_get_args() as $page) {
+        foreach ($arg as $page) {
             $returnArray[$page]
             =self::renderJson(); 
         }

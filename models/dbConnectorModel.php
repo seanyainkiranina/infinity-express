@@ -23,8 +23,11 @@ abstract class dbConnectorModel
     * @param array hash 
     * 
     */
-    public function __construct($config)
+    public function __construct()
     {
+
+	$config=$GLOBALS['env']['config'];
+
 
         $configuration_string="mysql:host=";
         $configuration_string .=$config['host'];
@@ -32,7 +35,7 @@ abstract class dbConnectorModel
         $configuration_string .=$config['database'];
 
 
-        R::setup(
+        \R::setup(
             $configuration_string,
             $config['user'],
             $config['password']
@@ -48,7 +51,9 @@ abstract class dbConnectorModel
     public function __destruct()
     {
 
-        R::close();
+        \R::close();
+
+
 
     }
      /* Create A Closure
@@ -59,20 +64,18 @@ abstract class dbConnectorModel
       * @param Method Name of class that this class inherits
       * @return is passed into the environment env['result']
       */
-      public static function returnDatabaseClosure(string $method)
+      public static function returnDatabaseClosure($method)
       {
         
         $databaseModel=get_called_class();
 
-            return function ($route) use ($databaseModel, $method, $env, $config) {
-                global $env;
-                global $config;
+            return function ($route) use ($databaseModel, $method) {
 
                 $parameters=$route->getParams();
 
 
-                    $dbModel = new $databaseModel($config);
-                    $env['result'] = $dbModel->$method($parameters);
+                    $dbModel = new $databaseModel();
+	$GLOBALS['env']['result'] = $dbModel->$method($parameters);
 
             };
 

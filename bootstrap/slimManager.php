@@ -13,7 +13,6 @@ namespace infinityExpress;
  * @author <seanyainkiranina@yahoo.com>
  */
 
-global $env;
 
 
 class slimManager
@@ -21,17 +20,14 @@ class slimManager
 
     public static $app =null;
 
-    public static function init()
+    public static function init($config)
     {
 
-        global $env;
-
-        global $config;
-
         self::$app = new \Slim\Slim(array('debug'=>true));
-        $env = self::$app->environment();
-        $env['config'] = $config;
-        $env['result'] = null;
+        $GLOBALS['env'] = self::$app->environment();
+        $GLOBALS['env']['config'] = $config;
+        $GLOBALS['result'] = null;
+
 
 
     }
