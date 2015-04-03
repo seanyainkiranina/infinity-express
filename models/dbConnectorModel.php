@@ -1,4 +1,5 @@
 <?php
+namespace infinityExpress;
 
 /*
  * This file is part of Infinity  Express
@@ -12,7 +13,7 @@
  * @author <seanyainkiranina@yahoo.com>
  */
 
-abstract class db_connector_model
+abstract class DbConnectorModel
 {
    /* Constructor
     *
@@ -22,7 +23,7 @@ abstract class db_connector_model
     * @param array hash 
     * 
     */
-    function __construct($config)
+    public function __construct($config)
     {
 
         $configuration_string="mysql:host=";
@@ -44,7 +45,7 @@ abstract class db_connector_model
     *
     * Close the database connection with Redbean
     */
-    function __destruct()
+    public function __destruct()
     {
 
         R::close();
@@ -58,24 +59,24 @@ abstract class db_connector_model
       * @param Method Name of class that this class inherits
       * @return is passed into the environment env['result']
       */
-      public static function return_database_closure(string $method)
+      public static function returnDatabaseClosure(string $method)
       {
         
-        $database_Model=get_called_class();
+        $databaseModel=get_called_class();
 
-            return function ($route) use ($database_Model, $method, $env, $config) {
+            return function ($route) use ($databaseModel, $method, $env, $config) {
                 global $env;
                 global $config;
 
                 $parameters=$route->getParams();
 
 
-                    $db_Model = new $database_Model($config);
-                    $env['result'] = $db_Model->$method($parameters);
+                    $dbModel = new $databaseModel($config);
+                    $env['result'] = $dbModel->$method($parameters);
 
             };
 
-      }
+        }
 
        /* Function Factory
         * 
@@ -86,35 +87,33 @@ abstract class db_connector_model
         * @return hash array of the methods or a single method if one 
         * parameter passed
         */
-        public static function get_middleware()
+        public static function getMiddleware()
         {
 
-            $database_Model=get_called_class();
-            $middleware_array=array();
+            $databaseModel=get_called_class();
+            $middlewareArray=array();
 
             $connectors=func_get_args();
 
 
-            $last_connector_key="";
 
-            if (count($connectors)==1){
+            if (count($connectors)==1) {
                     return
-                    $database_Model::return_database_closure($last_connector_key);
+                    $databaseModel::returnDatabaseClosure($connectors[0]);
 
 
             }
 
 
-            foreach ($connectors as $connector_key) {
-                $middleware_array[$connector_key]=
-                $database_Model::return_database_closure($connector_key);
-                $last_connector_key=$connector_key;
+            foreach ($connectors as $connectorKey) {
+                $middlewareArray[$connectorKey]=
+                $databaseModel::returnDatabaseClosure($connectorKey);
 
             }
 
 
             return
-            $middleware_array;
+            $middlewareArray;
 
 
         }

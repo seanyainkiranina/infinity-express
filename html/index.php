@@ -3,15 +3,18 @@
   require_once 'autoloader.php';
   require_once '../bootstrap/slimstart.php';
 
-    slim_manager::init();
+    slimManager::init();
 /*
-*
-* Create closures connectors to data layer
-*/
-    $connectors=Model::get_middleware(
+ *
+ * Create closures and have slim connect them to the route
+ * every string parameter below will be stored in table
+ * loop to store routes middle ware connectors and twig template names
+ * 
+ */
+    $connectors=Model::getMiddleware(
         "get",
         "get_by_state",
-        "get_by_city"
+       "get_by_city"
     );
     $connectors['static']=function ($parameters) {
 
@@ -19,42 +22,42 @@
     };
 
 
-    $views=View::get_page_renders(
+    $views=View::getPageRenders(
         "index3.html",
         "index2.html",
         "error.html",
         "index.html"
     );
-    $views["json"]=View::get_data_render(
+    $views["json"]=View::getDataRenders(
         "json"
     );
-    slim_manager::response(
+    slimManager::response(
         "/error",
         $connectors['static'],
-        View::get_page_render("error.html")
+        View::getPageRenders("error.html")
     );
-    slim_manager::response(
+    slimManager::response(
         "/",
         $connectors['static'],
-        View::get_page_render("index3.html")
+        View::getPageRenders("index3.html")
     );
 
-    slim_manager::response(
+    slimManager::response(
         "/zip/:zip",
-        Model::get_middleware("get"),
+        Model::getMiddleware("get"),
         $views["index2.html"]
     );
 
-    slim_manager::response(
+    slimManager::response(
         "/zips/:zip",
         $connectors["get"],
         $views["json"]
     );
 
-    slim_manager::response(
+    slimManager::response(
         "/city/:city",
         $connectors["get_by_city"],
         $views["json"]
     );
 
-    slim_manager::execute();
+    slimManager::execute();

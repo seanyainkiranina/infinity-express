@@ -1,4 +1,5 @@
 <?php
+namespace infinityExpress;
 
 /*
  * This file is part of Infinity  Express
@@ -12,52 +13,53 @@
  * @author <seanyainkiranina@yahoo.com>
  */
 
-class View extends connector_view
+class View extends connectorView
 {
-
+   /*
+    *  Constructor 
+    *  @param Twig template directory Twig cache
+    */
     public function __construct($templates, $cache)
     {
 
         parent::__construct($templates, $cache);
 
     }
-    static function get_page_render($page)
+   /* getPageRender 
+    *  
+    * @param List of Twig template files
+    * @return Hash array of closure Twig methods
+    */
+    public static function getPageRender()
     {
-
-
-        return self::render_page($page);
-    }
-
-    static function get_page_renders()
-    {
-
-
-        $return_array=array();
+	if (count(func_get_args())==1){
+            return self::renderPage($argv[0]);
+	}
+        $returnArray=array();
 
         foreach (func_get_args() as $page) {
-            $return_array[$page]
-            =self::render_page($page);
+            $returnArray[$page]
+            =self::renderPage($page);
 
         }
-        return $return_array;
+        return $returnArray;
 
     }
-    static function get_data_renders()
-    {
 
-        $return_array=array();
+    // TODO Add more data renders XML, csv etc 
+    // This is just a snub 
+    public static function getDataRenders()
+    {
+	if (count(func_get_args())==1){
+            return self::renderJson(); 
+	}
+
+        $returnArray=array();
         foreach (func_get_args() as $page) {
-            $return_array[$page]
-            =self::render_json();
-
+            $returnArray[$page]
+            =self::renderJson(); 
         }
-        return $return_array;
-
-    }
-    static function get_data_render($page)
-    {
-            return self::render_json();
-
+        return $returnArray;
 
     }
 }

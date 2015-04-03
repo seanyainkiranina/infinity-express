@@ -1,4 +1,5 @@
 <?php
+namespace infinityExpress;
 
 /*
  * This file is part of Infinity  Express

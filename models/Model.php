@@ -1,4 +1,5 @@
 <?php
+namespace infinityExpress;
 
 /*
  * This file is part of Infinity  Express
@@ -12,11 +13,13 @@
  * @author <seanyainkiranina@yahoo.com>
  */
 
-class Model extends db_connector_model
+class Model extends dbConnectorModel
 {
 
+// Methods below are just examples of functionality
+// Using a zip code database as that is what we got
 
-    function get($parameters)
+    public function get($parameters)
     {
 
         $zip_passed=$parameters['zip'];
@@ -28,7 +31,7 @@ class Model extends db_connector_model
 
 
     }
-    function get_by_state($parameters)
+    public function getByState($parameters)
     {
         $state=$parameters['state'];
         return R::getAll(
@@ -38,7 +41,7 @@ class Model extends db_connector_model
 
 
     }
-    function get_by_city($parameters)
+    public function getByCity($parameters)
     {
         $city=$parameters['city'];
 
