@@ -13,7 +13,7 @@ namespace infinityExpress;
  * @author <seanyainkiranina@yahoo.com>
  */
 
-class connector_view
+class connectorView
 {
 
     public $twig;
@@ -30,7 +30,7 @@ class connector_view
 
     }
 
-    protected static function render_page($page)
+    protected static function renderPage($page)
     {
 
 
@@ -59,7 +59,7 @@ class connector_view
         };
 
     }
-    protected static function render_json()
+    protected static function renderJson()
     {
 
         return function () {

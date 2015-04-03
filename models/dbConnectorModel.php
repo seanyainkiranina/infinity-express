@@ -13,7 +13,7 @@ namespace infinityExpress;
  * @author <seanyainkiranina@yahoo.com>
  */
 
-abstract class DbConnectorModel
+abstract class dbConnectorModel
 {
    /* Constructor
     *

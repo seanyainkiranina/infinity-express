@@ -1,4 +1,6 @@
 <?php
+  use infinityExpress;
+
   require_once '../config/configuration.php';
   require_once 'autoloader.php';
   require_once '../bootstrap/slimstart.php';
@@ -14,7 +16,7 @@
     $connectors=Model::getMiddleware(
         "get",
         "get_by_state",
-       "get_by_city"
+        "get_by_city"
     );
     $connectors['static']=function ($parameters) {
 

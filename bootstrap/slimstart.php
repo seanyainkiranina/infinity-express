@@ -1,4 +1,5 @@
 <?php
+namespace infinityExpress;
 
 /*
  * This file is part of Infinity  Express
@@ -15,7 +16,7 @@
 global $env;
 
 
-class slim_manager
+class slimManager
 {
 
     public static $app =null;
