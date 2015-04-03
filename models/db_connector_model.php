@@ -14,7 +14,14 @@
 
 abstract class db_connector_model
 {
-
+   /* Constructor
+    *
+    *  Create a new instance passing the configuration 
+    *  setup a RedBean with the connection string
+    *
+    * @param array hash 
+    * 
+    */
     function __construct($config)
     {
 
@@ -33,14 +40,25 @@ abstract class db_connector_model
 
     }
 
+   /* Destructor
+    *
+    * Close the database connection with Redbean
+    */
     function __destruct()
     {
 
         R::close();
 
     }
-
-      public static function return_database_closure($method)
+     /* Create A Closure
+      * 
+      * Invoke a instance of the class that inherits this class
+      * executes the passed method name of the inherited class
+      * 
+      * @param Method Name of class that this class inherits
+      * @return is passed into the environment env['result']
+      */
+      public static function return_database_closure(string $method)
       {
         
         $database_Model=get_called_class();
@@ -59,7 +77,15 @@ abstract class db_connector_model
 
       }
 
-
+       /* Function Factory
+        * 
+        * Class that inherits this abstract class  
+        * @param any number of strings that correspond with the
+        * methods of the inherited class that are returned as closure 
+        * functions 
+        * @return hash array of the methods or a single method if one 
+        * parameter passed
+        */
         public static function get_middleware()
         {
 
@@ -68,25 +94,24 @@ abstract class db_connector_model
 
             $connectors=func_get_args();
 
-            $loopcount=0;
 
             $last_connector_key="";
 
-
-            foreach ($connectors as $connector_key) {
-                $middleware_array[$connector_key]=
-                $database_Model::return_database_closure($connector_key);
-                $loopcount++;
-                $last_connector_key=$connector_key;
-
-            }
-
-            if ($loopcount==1) {
+            if (count($connectors)==1){
                     return
                     $database_Model::return_database_closure($last_connector_key);
 
 
             }
+
+
+            foreach ($connectors as $connector_key) {
+                $middleware_array[$connector_key]=
+                $database_Model::return_database_closure($connector_key);
+                $last_connector_key=$connector_key;
+
+            }
+
 
             return
             $middleware_array;
