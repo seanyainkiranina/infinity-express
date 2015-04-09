@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="zipApp">
 
 <head>
 
@@ -22,16 +22,10 @@
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
-<body id="page-top" ng-controller="PhoneListCtrl" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -81,20 +75,23 @@
 
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
-        <div class="row">
+        <div class="row" ng-controller="zipListCtrl">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>About Infinity Express</h2>
 		<ul >
-		 <li ng-repeat="phone in phones">
+		 <li ng-repeat="zip in zips">
 
 			<span>
 			{% verbatim %}
-				{{phone.name}}
+				{{zip.zip}}
 			{% endverbatim %}
 				</span>
 			<p>
 			{% verbatim %}
-				{{phone.snippit}}
+				{{zip.city}}
+			{% endverbatim %}
+			{% verbatim %}
+				{{zip.state}}
 			{% endverbatim %}
 
 			</p>

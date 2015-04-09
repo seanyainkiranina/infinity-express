@@ -53,6 +53,7 @@ class View extends connectorView
     {
 	$arg=func_get_args();
 	if (count($arg)==1){
+	    
             return self::renderJson(); 
 	}
 

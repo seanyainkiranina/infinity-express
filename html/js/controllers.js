@@ -1,16 +1,16 @@
 
-var phonecatApp = angular.module('phonecatApp', []);
+var zipApp = angular.module('zipApp', []);
 
-phonecatApp.controller('PhoneListCtrl', function ($scope){
+zipApp.controller('zipListCtrl', function ($scope,$http){
 
-	$scope.phones =[
-		{'name': 'Nexus 6',
-		'snippit': 'Test 1'},
-		{'name': 'Nexus 5',
-		'snippit': 'Test 2'}
+         $http.get('/zips/60015').
+		success(function(data){
 
-];
+			$scope.zips=data;
 
+
+
+		});
 
 
 
