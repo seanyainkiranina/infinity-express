@@ -1,12 +1,25 @@
 {% import "infinity-express.html" as ie %}
 
-{{ ie.head('ieFirstApp','IE Rocks','Rocks','seanyainkiranina@yahoo.com') }}
+{% set appName = 'isFirstApp' %}
+{% set appCtrl = 'isFirstCtrl' %}
+{% set appContainer = 'zips' %}
+{% set appItem = 'zip' %}
+{% set appDataSrc = '/zips/60016' %}
+
+{{ ie.head(appName,'IE Rocks','Rocks','seanyainkiranina@yahoo.com') }}
 
 {{ ie.navigation() }}
 
 {{ ie.hello('Hello World','ie') }}
 
-{{ ie.about('ieCtrl','Ie Ctrl Title','zip in zips','zip.zip','zip.city','zip.state') }}
+{{ ie.about(appCtrl,'Ie Ctrl Title',appItem,appContainer,'zip','city','state') }}
 
 {{ ie.footer('me') }}
+
+{{ ie.footer(appName,appCtrl,appDataSrc,appContainer,'me') }}
+
+
+
+
+
 

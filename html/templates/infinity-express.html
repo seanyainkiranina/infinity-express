@@ -81,26 +81,26 @@
     </header>
 {% endmacro %}
 
-{% macro about(ctrlName,h2,repeat,firstprop,secondprop,thirdprop) %}
+{% macro about(ctrlName,h2,item,container,firstprop,secondprop,thirdprop) %}
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
         <div class="row" ng-controller="{{ ctrlName }}">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>{{ h2 }}</h2>
 		<ul >
-		 <li ng-repeat="{{ repeat }}">
+		 <li ng-repeat="{{ item }} in {{ container }}">
 
 			<span>
 			{% verbatim %} {{ {% endverbatim %}
-			{{ firstprop }}
+			{{ item }}.{{ firstprop }}
 			{% verbatim %} }} {% endverbatim %}
 				</span>
 			<p>
 			{% verbatim %} {{ {% endverbatim %}
-			{{ secondprop }}
+			{{ item }}.{{ secondprop }}
 			{% verbatim %} }} {% endverbatim %}
 			{% verbatim %} {{ {% endverbatim %}
-			{{ thirdprop }}
+			{{ item }}.{{ thirdprop }}
 			{% verbatim %} {{ {% endverbatim %}
 			</p>
 
@@ -113,11 +113,11 @@
 {% endmacro %}
 
 
-{% macro footer(copyright) %}
+{% macro footer(appName,ctrlName,ctrlUrl,ctrlContainer,copyRight) %}
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; {{ copyright }}</p>
+            <p>Copyright &copy; {{ copyRight }}</p>
         </div>
     </footer>
 
@@ -134,7 +134,27 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
     <script src="js/angular.min.js"></script>
-    <script src="js/controllers.js"></script>
+    <script type="text/javascript">
+
+var {{ appName }}  = angular.module('{{ appName }}', []);
+
+{{ appName }}.controller('{{ ctrlName }}', function ($scope,$http){
+
+
+
+         $http.get('{{ ctrlUrl }}').
+		success(function(data){
+
+			$scope.{{ ctrlContainer }}=data;
+
+
+
+		});
+
+
+
+});
+</script>
 
 </body>
 
