@@ -18,7 +18,7 @@
         "get_by_city"
     );
     $connectors['static']=function ($parameters) {
-        $page = new stdClass();
+        $page = new infinityExpress\Page();
         $page->appName = "isFirstApp";
         $page->title ="IE";
         $page->description ="Infinity Express";
