@@ -1,0 +1,8 @@
+{% macro renderAngularItem(item,prop) %}
+			{% verbatim %} {{ {% endverbatim %}
+			{{ item }}.{{ prop }}
+			{% verbatim %} }} {% endverbatim %}
+
+{% endmacro %}
+
+
