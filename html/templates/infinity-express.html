@@ -81,7 +81,18 @@
     </header>
 {% endmacro %}
 
+{% macro renderAngularItem(item,prop) %}
+			{% verbatim %} {{ {% endverbatim %}
+			{{ item }}.{{ prop }}
+			{% verbatim %} }} {% endverbatim %}
+
+{% endmacro %}
+
+
 {% macro about(ctrlName,h2,item,container,firstprop,secondprop,thirdprop) %}
+
+  {% import _self as ang %}
+
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
         <div class="row" ng-controller="{{ ctrlName }}">
@@ -91,17 +102,15 @@
 		 <li ng-repeat="{{ item }} in {{ container }}">
 
 			<span>
-			{% verbatim %} {{ {% endverbatim %}
-			{{ item }}.{{ firstprop }}
-			{% verbatim %} }} {% endverbatim %}
+			{{ ang.renderAngularItem(item,firstprop) }}
 				</span>
 			<p>
-			{% verbatim %} {{ {% endverbatim %}
-			{{ item }}.{{ secondprop }}
-			{% verbatim %} }} {% endverbatim %}
-			{% verbatim %} {{ {% endverbatim %}
-			{{ item }}.{{ thirdprop }}
-			{% verbatim %} {{ {% endverbatim %}
+			{{ ang.renderAngularItem(item,secondprop) }}
+
+			</p>
+			<p>
+
+			{{ ang.renderAngularItem(item,thirdprop) }}
 			</p>
 
                  </li>
