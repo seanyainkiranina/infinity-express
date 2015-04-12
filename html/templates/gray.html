@@ -1,19 +1,14 @@
 {% import "infinity-express.html" as ie %}A
 
-{% set appName = 'isFirstApp' %}
-{% set appCtrl = 'isFirstCtrl' %}
-{% set appContainer = 'zips' %}
-{% set appItem = 'zip' %}
-{% set appDataSrc = '/zips/60016' %}
-
-{{ ie.head(appName,'IE Rocks','Rocks','seanyainkiranina@yahoo.com') }}
+{{ ie.head(data.appName,data.title,data.description,data.author) }}
 
 {{ ie.navigation() }}
 
-{{ ie.header('Hello World','ie') }}
+{{ ie.header(data.h1,data.title) }}
 
-{{ ie.about(appCtrl,'Ie Ctrl Title',appItem,appContainer,'zip','city','state') }}
-{{ ie.footer(appName,appCtrl,appDataSrc,appContainer,'me') }}
+{{ ie.about(data.appCtrl,data.ctrlTitle,data.appItem,data.appContainer,data.itemProps) }}
+
+{{ ie.footer(data.appName,data.appCtrl,data.appDataSrc,data.appContainer,data.author) }}
 
 
 

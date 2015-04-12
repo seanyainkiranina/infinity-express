@@ -18,7 +18,19 @@
         "get_by_city"
     );
     $connectors['static']=function ($parameters) {
-
+        $page = new stdClass();
+        $page->appName = "isFirstApp";
+        $page->title ="IE";
+        $page->description ="Infinity Express";
+        $page->author ="me";
+        $page->h1="Infinity Express";
+        $page->appCtrl ="isFirstCtrl";
+	$page->ctrlTitle ="First Ctrl";
+        $page->appItem = "zip";
+        $page->appContainer="zips";
+        $page->itemProps =array('zip','city','state');
+        $page->appDataSrc="/zips/60068";
+        $GLOBALS['env']['result']=$page;
 
     };
 
