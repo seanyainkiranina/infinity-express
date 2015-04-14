@@ -18,8 +18,6 @@ class Page
 
     // Properties for a page object
 
-    // Angular App Name
-    public $appName;
 
     public $title;
 
@@ -28,6 +26,9 @@ class Page
     public $author;
 
     public $h1;
+
+   // Angular App Name
+    public $appName;
 
   // Angular Control Name
     public $appCtrl;
@@ -43,6 +44,6 @@ class Page
   // Angular Item Props
     public $itemProps;
 
-  // Angluar Url DataSrc
+  // Angular Url DataSrc
     public $appDataSrc;
 }
