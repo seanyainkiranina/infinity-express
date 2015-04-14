@@ -91,18 +91,26 @@
         <div class="row" ng-controller="{{ ctrlName }}">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>{{ h2 }}</h2>
-		<ul ng-repeat="{{ item }} in {{ container }}">
-		<li>
-		     <ul>
+                  <table st-table="{{ container }}" 
+class="table table-striped">
+                   <thead>
+                   <tr>
 			{% for prop in props %}
-				<li>
-			{{ ang.renderAngularItem(item,prop) }}
-                 		</li>
+                          <th>{{ prop }}</th>
 			{% endfor  %}
-		    </ul>
+                   </tr>
+                   </thead>
+                   <tbody>
+		<tr ng-repeat="{{ item }} in {{ container }}">
+			{% for prop in props %}
+				<td>
+			{{ ang.renderAngularItem(item,prop) }}
+                 		</td>
+			{% endfor  %}
+               </tr>
+                   </tbody>
 
-               </li>
-	       </ul>
+                  </table>
 		
             </div>
         </div>
@@ -131,6 +139,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
     <script src="js/angular.min.js"></script>
+    <script src="js/smart-table.min.js"></script>
     <script type="text/javascript">
 
 var {{ appName }}  = angular.module('{{ appName }}', []);
