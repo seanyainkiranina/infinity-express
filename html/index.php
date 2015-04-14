@@ -25,7 +25,7 @@
         $page->author ="me";
         $page->h1="Infinity Express";
         $page->appCtrl ="isFirstCtrl";
-	$page->ctrlTitle ="First Ctrl";
+        $page->ctrlTitle ="First Ctrl";
         $page->appItem = "zip";
         $page->appContainer="zips";
         $page->itemProps =array('zip','city','state');
@@ -48,34 +48,34 @@
     );
 
 
-  infinityExpress\slimManager::response(
-        "/error",
-        $connectors['static'],
-        infinityExpress\View::getPageRenders("error.html")
-    );
+    infinityExpress\slimManager::response(
+      "/error",
+      $connectors['static'],
+      infinityExpress\View::getPageRenders("error.html")
+  );
 
-  infinityExpress\slimManager::response(
-        "/",
-        $connectors['static'],
-        infinityExpress\View::getPageRenders("gray.html")
-    );
+    infinityExpress\slimManager::response(
+      "/",
+      $connectors['static'],
+      infinityExpress\View::getPageRenders("gray.html")
+  );
 
-  infinityExpress\slimManager::response(
-        "/zip/:zip",
-        infinityExpress\Model::getMiddleware("get"),
-        $views["index2.html"]
-    );
+    infinityExpress\slimManager::response(
+      "/zip/:zip",
+      infinityExpress\Model::getMiddleware("get"),
+      $views["index2.html"]
+  );
 
-  infinityExpress\slimManager::response(
-        "/zips/:zip",
-        $connectors["get"],
-        $views["json"]
-    );
+    infinityExpress\slimManager::response(
+      "/zips/:zip",
+      $connectors["get"],
+      $views["json"]
+  );
 
-  infinityExpress\slimManager::response(
-        "/city/:city",
-        $connectors["get_by_city"],
-        $views["json"]
-    );
+    infinityExpress\slimManager::response(
+      "/city/:city",
+      $connectors["get_by_city"],
+      $views["json"]
+  );
 
-  infinityExpress\slimManager::execute();
+    infinityExpress\slimManager::execute();

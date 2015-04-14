@@ -15,18 +15,18 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 32
+        // line 38
         echo "
 
 ";
-        // line 64
+        // line 70
         echo "
 ";
-        // line 83
+        // line 89
         echo "
 
 ";
-        // line 111
+        // line 125
         echo "
 
 ";
@@ -82,6 +82,12 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
     <link href=\"font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">
     <link href=\"http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\" rel=\"stylesheet\" type=\"text/css\">
     <link href=\"http://fonts.googleapis.com/css?family=Montserrat:400,700\" rel=\"stylesheet\" type=\"text/css\">
+<style>
+  table tr td{
+\tcolor:#000000;
+    }
+
+</style>
 
 
 </head>
@@ -98,7 +104,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 34
+    // line 40
     public function getnavigation()
     {
         $context = $this->env->getGlobals();
@@ -107,7 +113,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
         ob_start();
         try {
-            // line 35
+            // line 41
             echo "    <!-- Navigation -->
     <nav class=\"navbar navbar-custom navbar-fixed-top\" role=\"navigation\">
         <div class=\"container\">
@@ -146,7 +152,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 65
+    // line 71
     public function getheader($__h1__ = null, $__intro__ = null)
     {
         $context = $this->env->mergeGlobals(array(
@@ -158,7 +164,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
         ob_start();
         try {
-            // line 66
+            // line 72
             echo "    <!-- Intro Header -->
     <header class=\"intro\">
         <div class=\"intro-body\">
@@ -166,11 +172,11 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
                 <div class=\"row\">
                     <div class=\"col-md-8 col-md-offset-2\">
                         <h1 class=\"brand-heading\">";
-            // line 72
+            // line 78
             echo twig_escape_filter($this->env, (isset($context["h1"]) ? $context["h1"] : null), "html", null, true);
             echo "</h1>
                         <p class=\"intro-text\">";
-            // line 73
+            // line 79
             echo twig_escape_filter($this->env, (isset($context["intro"]) ? $context["intro"] : null), "html", null, true);
             echo "</p>
                         <a href=\"#about\" class=\"btn btn-circle page-scroll\">
@@ -191,7 +197,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 85
+    // line 91
     public function getabout($__ctrlName__ = null, $__h2__ = null, $__item__ = null, $__container__ = null, $__props__ = null)
     {
         $context = $this->env->mergeGlobals(array(
@@ -206,54 +212,77 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
         ob_start();
         try {
-            // line 86
+            // line 92
             echo "
   ";
-            // line 87
+            // line 93
             $context["ang"] = $this->env->loadTemplate("ng.html");
-            // line 88
+            // line 94
             echo "
     <!-- About Section -->
     <section id=\"about\" class=\"container content-section text-center\">
         <div class=\"row\" ng-controller=\"";
-            // line 91
+            // line 97
             echo twig_escape_filter($this->env, (isset($context["ctrlName"]) ? $context["ctrlName"] : null), "html", null, true);
             echo "\">
             <div class=\"col-lg-8 col-lg-offset-2\">
                 <h2>";
-            // line 93
+            // line 99
             echo twig_escape_filter($this->env, (isset($context["h2"]) ? $context["h2"] : null), "html", null, true);
             echo "</h2>
-\t\t<ul ng-repeat=\"";
-            // line 94
-            echo twig_escape_filter($this->env, (isset($context["item"]) ? $context["item"] : null), "html", null, true);
-            echo " in ";
+                  <table st-table=\"";
+            // line 100
             echo twig_escape_filter($this->env, (isset($context["container"]) ? $context["container"] : null), "html", null, true);
-            echo "\">
-\t\t<li>
-\t\t     <ul>
+            echo "\" 
+class=\"table table-striped\">
+                   <thead>
+                   <tr>
 \t\t\t";
-            // line 97
+            // line 104
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["props"]) ? $context["props"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["prop"]) {
-                // line 98
-                echo "\t\t\t\t<li>
-\t\t\t";
-                // line 99
-                echo $context["ang"]->getrenderAngularItem((isset($context["item"]) ? $context["item"] : null), $context["prop"]);
-                echo "
-                 \t\t</li>
+                // line 105
+                echo "                          <th>";
+                echo twig_escape_filter($this->env, $context["prop"], "html", null, true);
+                echo "</th>
 \t\t\t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['prop'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 102
-            echo "\t\t    </ul>
+            // line 107
+            echo "                   </tr>
+                   </thead>
+                   <tbody>
+\t\t<tr ng-repeat=\"";
+            // line 110
+            echo twig_escape_filter($this->env, (isset($context["item"]) ? $context["item"] : null), "html", null, true);
+            echo " in ";
+            echo twig_escape_filter($this->env, (isset($context["container"]) ? $context["container"] : null), "html", null, true);
+            echo "\">
+\t\t\t";
+            // line 111
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["props"]) ? $context["props"] : null));
+            foreach ($context['_seq'] as $context["_key"] => $context["prop"]) {
+                // line 112
+                echo "\t\t\t\t<td>
+\t\t\t";
+                // line 113
+                echo $context["ang"]->getrenderAngularItem((isset($context["item"]) ? $context["item"] : null), $context["prop"]);
+                echo "
+                 \t\t</td>
+\t\t\t";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['prop'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 116
+            echo "               </tr>
+                   </tbody>
 
-               </li>
-\t       </ul>
+                  </table>
 \t\t
             </div>
         </div>
@@ -268,7 +297,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 113
+    // line 127
     public function getfooter($__appName__ = null, $__ctrlName__ = null, $__ctrlUrl__ = null, $__ctrlContainer__ = null, $__copyRight__ = null)
     {
         $context = $this->env->mergeGlobals(array(
@@ -283,12 +312,12 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
         ob_start();
         try {
-            // line 114
+            // line 128
             echo "    <!-- Footer -->
     <footer>
         <div class=\"container text-center\">
             <p>Copyright &copy; ";
-            // line 117
+            // line 131
             echo twig_escape_filter($this->env, (isset($context["copyRight"]) ? $context["copyRight"] : null), "html", null, true);
             echo "</p>
         </div>
@@ -307,17 +336,18 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
     <!-- Custom Theme JavaScript -->
     <script src=\"js/grayscale.js\"></script>
     <script src=\"js/angular.min.js\"></script>
+    <script src=\"js/smart-table.min.js\"></script>
     <script type=\"text/javascript\">
 
 var ";
-            // line 136
+            // line 151
             echo twig_escape_filter($this->env, (isset($context["appName"]) ? $context["appName"] : null), "html", null, true);
             echo "  = angular.module('";
             echo twig_escape_filter($this->env, (isset($context["appName"]) ? $context["appName"] : null), "html", null, true);
             echo "', []);
 
 ";
-            // line 138
+            // line 153
             echo twig_escape_filter($this->env, (isset($context["appName"]) ? $context["appName"] : null), "html", null, true);
             echo ".controller('";
             echo twig_escape_filter($this->env, (isset($context["ctrlName"]) ? $context["ctrlName"] : null), "html", null, true);
@@ -326,13 +356,13 @@ var ";
 
 
          \$http.get('";
-            // line 142
+            // line 157
             echo twig_escape_filter($this->env, (isset($context["ctrlUrl"]) ? $context["ctrlUrl"] : null), "html", null, true);
             echo "').
 \t\tsuccess(function(data){
 
 \t\t\t\$scope.";
-            // line 145
+            // line 160
             echo twig_escape_filter($this->env, (isset($context["ctrlContainer"]) ? $context["ctrlContainer"] : null), "html", null, true);
             echo "=data;
 
@@ -370,6 +400,6 @@ var ";
 
     public function getDebugInfo()
     {
-        return array (  336 => 145,  330 => 142,  321 => 138,  314 => 136,  292 => 117,  287 => 114,  272 => 113,  253 => 102,  244 => 99,  241 => 98,  237 => 97,  229 => 94,  225 => 93,  220 => 91,  215 => 88,  213 => 87,  210 => 86,  195 => 85,  174 => 73,  170 => 72,  162 => 66,  150 => 65,  111 => 35,  102 => 34,  72 => 13,  67 => 11,  63 => 10,  53 => 3,  50 => 2,  36 => 1,  30 => 111,  26 => 83,  23 => 64,  19 => 32,);
+        return array (  366 => 160,  360 => 157,  351 => 153,  344 => 151,  321 => 131,  316 => 128,  301 => 127,  282 => 116,  273 => 113,  270 => 112,  266 => 111,  260 => 110,  255 => 107,  246 => 105,  242 => 104,  235 => 100,  231 => 99,  226 => 97,  221 => 94,  219 => 93,  216 => 92,  201 => 91,  180 => 79,  176 => 78,  168 => 72,  156 => 71,  117 => 41,  108 => 40,  72 => 13,  67 => 11,  63 => 10,  53 => 3,  50 => 2,  36 => 1,  30 => 125,  26 => 89,  23 => 70,  19 => 38,);
     }
 }
