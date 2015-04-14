@@ -17,6 +17,13 @@
         "get_by_state",
         "get_by_city"
     );
+/*
+ *
+ * Create a instance of a new Page class and pass it values
+ * the page class is then rendered using twig into an angular single
+ * ctrl page. This example uses the gray.html template
+ *
+ */
     $connectors['static']=function ($parameters) {
         $page = new infinityExpress\Page();
         $page->appName = "isFirstApp";
