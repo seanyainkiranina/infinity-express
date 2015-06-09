@@ -27,6 +27,15 @@ class slimManager
         $GLOBALS['env'] = self::$app->environment();
         $GLOBALS['env']['config'] = $config;
         $GLOBALS['result'] = null;
+	self::$app->add(new \Slim\Middleware\SessionCookie(array(
+	'expires' => $config['expires'],
+	'path' => '/',
+	'secure' => false,
+	'httponly' => false,
+	'name' => $config['session_name'],
+	'secert' => $config['secert'],
+	'cipher' => MCRYPT_RIJNDAEL_256,
+	'cipher_mode' => MCRYPT_MODE_CBC)));
 
 
 

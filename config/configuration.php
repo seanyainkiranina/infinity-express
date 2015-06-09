@@ -15,8 +15,11 @@
 
 
 $config=array('host'=>'localhost',
-    'user'=>'root','password'=>'chicago','database'=>'zips',
+   'user'=>'root','password'=>'chicago','database'=>'zips',
    'filesystem'=>'/var/www/infinity-express/html/templates',
-   'cache'=>'/var/www/infinity-express/html/cache');
+   'cache'=>'/var/www/infinity-express/html/cache',
+   'expires'=>'60 minutes',
+   'session_name'=>'Infinity',
+   'secret'=>'express');
 
 

@@ -15,18 +15,18 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 38
+        // line 31
         echo "
 
 ";
-        // line 70
+        // line 63
         echo "
 ";
-        // line 89
+        // line 82
         echo "
 
 ";
-        // line 125
+        // line 118
         echo "
 
 ";
@@ -47,9 +47,12 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
         ob_start();
         try {
             // line 2
+            echo "  ";
+            $context["gt"] = $this->env->loadTemplate("gray-template.html");
+            // line 3
             echo "<!DOCTYPE html>
 <html lang=\"en\" ng-app=\"";
-            // line 3
+            // line 4
             echo twig_escape_filter($this->env, (isset($context["appName"]) ? $context["appName"] : null), "html", null, true);
             echo "\">
 
@@ -59,29 +62,24 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     <meta name=\"description\" content=\"";
-            // line 10
+            // line 11
             echo twig_escape_filter($this->env, (isset($context["description"]) ? $context["description"] : null), "html", null, true);
             echo "\">
     <meta name=\"author\" content=\"";
-            // line 11
+            // line 12
             echo twig_escape_filter($this->env, (isset($context["author"]) ? $context["author"] : null), "html", null, true);
             echo "\">
 
     <title>";
-            // line 13
+            // line 14
             echo twig_escape_filter($this->env, (isset($context["title"]) ? $context["title"] : null), "html", null, true);
             echo "</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">
+";
+            // line 16
+            echo $context["gt"]->getheader();
+            echo "
 
-    <!-- Custom CSS -->
-    <link href=\"css/grayscale.css\" rel=\"stylesheet\">
-
-    <!-- Custom Fonts -->
-    <link href=\"font-awesome/css/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\">
-    <link href=\"http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\" rel=\"stylesheet\" type=\"text/css\">
-    <link href=\"http://fonts.googleapis.com/css?family=Montserrat:400,700\" rel=\"stylesheet\" type=\"text/css\">
 <style>
   table tr td{
 \tcolor:#000000;
@@ -104,7 +102,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 40
+    // line 33
     public function getnavigation()
     {
         $context = $this->env->getGlobals();
@@ -113,7 +111,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
         ob_start();
         try {
-            // line 41
+            // line 34
             echo "    <!-- Navigation -->
     <nav class=\"navbar navbar-custom navbar-fixed-top\" role=\"navigation\">
         <div class=\"container\">
@@ -152,7 +150,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 71
+    // line 64
     public function getheader($__h1__ = null, $__intro__ = null)
     {
         $context = $this->env->mergeGlobals(array(
@@ -164,7 +162,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
         ob_start();
         try {
-            // line 72
+            // line 65
             echo "    <!-- Intro Header -->
     <header class=\"intro\">
         <div class=\"intro-body\">
@@ -172,11 +170,11 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
                 <div class=\"row\">
                     <div class=\"col-md-8 col-md-offset-2\">
                         <h1 class=\"brand-heading\">";
-            // line 78
+            // line 71
             echo twig_escape_filter($this->env, (isset($context["h1"]) ? $context["h1"] : null), "html", null, true);
             echo "</h1>
                         <p class=\"intro-text\">";
-            // line 79
+            // line 72
             echo twig_escape_filter($this->env, (isset($context["intro"]) ? $context["intro"] : null), "html", null, true);
             echo "</p>
                         <a href=\"#about\" class=\"btn btn-circle page-scroll\">
@@ -197,7 +195,7 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 91
+    // line 84
     public function getabout($__ctrlName__ = null, $__h2__ = null, $__item__ = null, $__container__ = null, $__props__ = null)
     {
         $context = $this->env->mergeGlobals(array(
@@ -212,37 +210,37 @@ class __TwigTemplate_12035abaf5dabdb69958a8ad8c1e22ef5178ad546ec7b43ccb2c4065ee1
 
         ob_start();
         try {
-            // line 92
+            // line 85
             echo "
   ";
-            // line 93
+            // line 86
             $context["ang"] = $this->env->loadTemplate("ng.html");
-            // line 94
+            // line 87
             echo "
     <!-- About Section -->
     <section id=\"about\" class=\"container content-section text-center\">
         <div class=\"row\" ng-controller=\"";
-            // line 97
+            // line 90
             echo twig_escape_filter($this->env, (isset($context["ctrlName"]) ? $context["ctrlName"] : null), "html", null, true);
             echo "\">
             <div class=\"col-lg-8 col-lg-offset-2\">
                 <h2>";
-            // line 99
+            // line 92
             echo twig_escape_filter($this->env, (isset($context["h2"]) ? $context["h2"] : null), "html", null, true);
             echo "</h2>
                   <table st-table=\"";
-            // line 100
+            // line 93
             echo twig_escape_filter($this->env, (isset($context["container"]) ? $context["container"] : null), "html", null, true);
             echo "\" 
 class=\"table table-striped\">
                    <thead>
                    <tr>
 \t\t\t";
-            // line 104
+            // line 97
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["props"]) ? $context["props"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["prop"]) {
-                // line 105
+                // line 98
                 echo "                          <th>";
                 echo twig_escape_filter($this->env, $context["prop"], "html", null, true);
                 echo "</th>
@@ -251,25 +249,25 @@ class=\"table table-striped\">
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['prop'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 107
+            // line 100
             echo "                   </tr>
                    </thead>
                    <tbody>
 \t\t<tr ng-repeat=\"";
-            // line 110
+            // line 103
             echo twig_escape_filter($this->env, (isset($context["item"]) ? $context["item"] : null), "html", null, true);
             echo " in ";
             echo twig_escape_filter($this->env, (isset($context["container"]) ? $context["container"] : null), "html", null, true);
             echo "\">
 \t\t\t";
-            // line 111
+            // line 104
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["props"]) ? $context["props"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["prop"]) {
-                // line 112
+                // line 105
                 echo "\t\t\t\t<td>
 \t\t\t";
-                // line 113
+                // line 106
                 echo $context["ang"]->getrenderAngularItem((isset($context["item"]) ? $context["item"] : null), $context["prop"]);
                 echo "
                  \t\t</td>
@@ -278,7 +276,7 @@ class=\"table table-striped\">
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['prop'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 116
+            // line 109
             echo "               </tr>
                    </tbody>
 
@@ -297,7 +295,7 @@ class=\"table table-striped\">
         return ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
     }
 
-    // line 127
+    // line 120
     public function getfooter($__appName__ = null, $__ctrlName__ = null, $__ctrlUrl__ = null, $__ctrlContainer__ = null, $__copyRight__ = null)
     {
         $context = $this->env->mergeGlobals(array(
@@ -312,12 +310,12 @@ class=\"table table-striped\">
 
         ob_start();
         try {
-            // line 128
+            // line 121
             echo "    <!-- Footer -->
     <footer>
         <div class=\"container text-center\">
             <p>Copyright &copy; ";
-            // line 131
+            // line 124
             echo twig_escape_filter($this->env, (isset($context["copyRight"]) ? $context["copyRight"] : null), "html", null, true);
             echo "</p>
         </div>
@@ -337,17 +335,18 @@ class=\"table table-striped\">
     <script src=\"js/grayscale.js\"></script>
     <script src=\"js/angular.min.js\"></script>
     <script src=\"js/smart-table.min.js\"></script>
+    <!-- Generated Angular for this example -->
     <script type=\"text/javascript\">
 
 var ";
-            // line 151
+            // line 145
             echo twig_escape_filter($this->env, (isset($context["appName"]) ? $context["appName"] : null), "html", null, true);
             echo "  = angular.module('";
             echo twig_escape_filter($this->env, (isset($context["appName"]) ? $context["appName"] : null), "html", null, true);
             echo "', []);
 
 ";
-            // line 153
+            // line 147
             echo twig_escape_filter($this->env, (isset($context["appName"]) ? $context["appName"] : null), "html", null, true);
             echo ".controller('";
             echo twig_escape_filter($this->env, (isset($context["ctrlName"]) ? $context["ctrlName"] : null), "html", null, true);
@@ -356,13 +355,13 @@ var ";
 
 
          \$http.get('";
-            // line 157
+            // line 151
             echo twig_escape_filter($this->env, (isset($context["ctrlUrl"]) ? $context["ctrlUrl"] : null), "html", null, true);
             echo "').
 \t\tsuccess(function(data){
 
 \t\t\t\$scope.";
-            // line 160
+            // line 154
             echo twig_escape_filter($this->env, (isset($context["ctrlContainer"]) ? $context["ctrlContainer"] : null), "html", null, true);
             echo "=data;
 
@@ -400,6 +399,6 @@ var ";
 
     public function getDebugInfo()
     {
-        return array (  366 => 160,  360 => 157,  351 => 153,  344 => 151,  321 => 131,  316 => 128,  301 => 127,  282 => 116,  273 => 113,  270 => 112,  266 => 111,  260 => 110,  255 => 107,  246 => 105,  242 => 104,  235 => 100,  231 => 99,  226 => 97,  221 => 94,  219 => 93,  216 => 92,  201 => 91,  180 => 79,  176 => 78,  168 => 72,  156 => 71,  117 => 41,  108 => 40,  72 => 13,  67 => 11,  63 => 10,  53 => 3,  50 => 2,  36 => 1,  30 => 125,  26 => 89,  23 => 70,  19 => 38,);
+        return array (  365 => 154,  359 => 151,  350 => 147,  343 => 145,  319 => 124,  314 => 121,  299 => 120,  280 => 109,  271 => 106,  268 => 105,  264 => 104,  258 => 103,  253 => 100,  244 => 98,  240 => 97,  233 => 93,  229 => 92,  224 => 90,  219 => 87,  217 => 86,  214 => 85,  199 => 84,  178 => 72,  174 => 71,  166 => 65,  154 => 64,  115 => 34,  106 => 33,  80 => 16,  75 => 14,  70 => 12,  66 => 11,  56 => 4,  53 => 3,  50 => 2,  36 => 1,  30 => 118,  26 => 82,  23 => 63,  19 => 31,);
     }
 }

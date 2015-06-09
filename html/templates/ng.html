@@ -1,8 +1,10 @@
-{% macro renderAngularItem(item,prop) %}
+{% macro renderAngularItem(item,prop,filter) %}
 			{% verbatim %} {{ {% endverbatim %}
 			{{ item }}.{{ prop }}
+			{% if filter|length > 0 %}
+			 | {{ filter }}
+			{% endif %}
 			{% verbatim %} }} {% endverbatim %}
-
 {% endmacro %}
 
 
