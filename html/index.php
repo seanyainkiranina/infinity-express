@@ -55,17 +55,16 @@
     );
 
 
-    infinityExpress\slimManager::response(
-      "/error",
-      $connectors['static'],
+    infinityExpress\slimManager::notFound(
       infinityExpress\View::getPageRenders("error.html")
-  );
+
+    );
 
     infinityExpress\slimManager::response(
       "/",
       $connectors['static'],
       infinityExpress\View::getPageRenders("gray.html")
-  );
+   );
 
     infinityExpress\slimManager::response(
       "/zip/:zip",

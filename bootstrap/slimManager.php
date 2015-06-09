@@ -33,7 +33,7 @@ class slimManager
 	'secure' => false,
 	'httponly' => false,
 	'name' => $config['session_name'],
-	'secert' => $config['secert'],
+	'secret' => $config['secret'],
 	'cipher' => MCRYPT_RIJNDAEL_256,
 	'cipher_mode' => MCRYPT_MODE_CBC)));
 
@@ -48,6 +48,15 @@ class slimManager
         self::$app->run();
 
     }
+    
+   public static function notFound($template){
+
+       self::$app->notFound(function() use ($template){
+
+                echo $template();
+
+	});
+   }
 
     public static function response($request, $connector, $template, $method = "get", $conditions = null)
     {
