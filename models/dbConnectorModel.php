@@ -26,7 +26,7 @@ abstract class dbConnectorModel
     public function __construct()
     {
 
-	$config=$GLOBALS['env']['config'];
+        $config=$GLOBALS['env']['config'];
 
 
         $configuration_string="mysql:host=";
@@ -75,11 +75,11 @@ abstract class dbConnectorModel
 
 
                     $dbModel = new $databaseModel();
-	$GLOBALS['env']['result'] = $dbModel->$method($parameters);
+                $GLOBALS['env']['result'] = $dbModel->$method($parameters);
 
             };
 
-        }
+      }
 
        /* Function Factory
         * 

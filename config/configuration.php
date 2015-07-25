@@ -21,5 +21,3 @@ $config=array('host'=>'localhost',
    'expires'=>'60 minutes',
    'session_name'=>'Infinity',
    'secret'=>'express');
-
-

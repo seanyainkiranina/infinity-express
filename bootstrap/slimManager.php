@@ -27,15 +27,15 @@ class slimManager
         $GLOBALS['env'] = self::$app->environment();
         $GLOBALS['env']['config'] = $config;
         $GLOBALS['result'] = null;
-	self::$app->add(new \Slim\Middleware\SessionCookie(array(
-	'expires' => $config['expires'],
-	'path' => '/',
-	'secure' => false,
-	'httponly' => false,
-	'name' => $config['session_name'],
-	'secret' => $config['secret'],
-	'cipher' => MCRYPT_RIJNDAEL_256,
-	'cipher_mode' => MCRYPT_MODE_CBC)));
+        self::$app->add(new \Slim\Middleware\SessionCookie(array(
+        'expires' => $config['expires'],
+        'path' => '/',
+        'secure' => false,
+        'httponly' => false,
+        'name' => $config['session_name'],
+        'secret' => $config['secret'],
+        'cipher' => MCRYPT_RIJNDAEL_256,
+        'cipher_mode' => MCRYPT_MODE_CBC)));
 
 
 
@@ -49,14 +49,15 @@ class slimManager
 
     }
     
-   public static function notFound($template){
+    public static function notFound($template)
+    {
 
-       self::$app->notFound(function() use ($template){
+        self::$app->notFound(function () use ($template) {
 
                 echo $template();
 
-	});
-   }
+        });
+    }
 
     public static function response($request, $connector, $template, $method = "get", $conditions = null)
     {
